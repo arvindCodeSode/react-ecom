@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import './Navbar.css';
 import './Signup.css'
@@ -13,6 +12,7 @@ import DeleteProduct from './components/product/DeleteProduct';
 import UpdateProduct from './components/product/UpdateProduct';
 import AddProduct from './components/product/AddProduct';
 import Footer from './components/common/Footer';
+import PrivateComponent from './components/PrivateComponent';
 function App() {
   return (
     <div className="App">
@@ -20,13 +20,15 @@ function App() {
       <BrowserRouter>
           <Navbar></Navbar>
           <Routes>
-              <Route path='/' element={<Home></Home>}></Route>
-              <Route path='/addproduct' element={<AddProduct></AddProduct>}></Route>
-              <Route path='/deleteproduct/:id' element={<DeleteProduct></DeleteProduct>}></Route>
-              <Route path='/updateproduct/:id' element={<UpdateProduct></UpdateProduct>}></Route>
-              <Route path='/products' element={<Products></Products>}></Route>
-              <Route path='/mycart' element={<MyCart></MyCart>}></Route>
-              <Route path='/singup' element={<SignUp></SignUp>}></Route>
+              <Route element = { <PrivateComponent /> }>
+                <Route path='/' element={<Home></Home>}></Route>
+                <Route path='/addproduct' element={<AddProduct></AddProduct>}></Route>
+                <Route path='/deleteproduct/:id' element={<DeleteProduct></DeleteProduct>}></Route>
+                <Route path='/updateproduct/:id' element={<UpdateProduct></UpdateProduct>}></Route>
+                <Route path='/products' element={<Products></Products>}></Route>
+                <Route path='/mycart' element={<MyCart></MyCart>}></Route>
+              </Route>
+              <Route path='/signup' element={<SignUp></SignUp>}></Route>
               <Route path='/login' element={<Login></Login>}></Route>
           </Routes>
       </BrowserRouter>
