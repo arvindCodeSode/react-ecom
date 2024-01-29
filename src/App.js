@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import './Navbar.css';
+import './Signup.css'
 import Navbar from './components/common/Navbar';
 import { BrowserRouter, Route,Routes } from 'react-router-dom';
 import Home from './components/Home';
