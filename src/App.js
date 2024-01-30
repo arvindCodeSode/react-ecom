@@ -13,6 +13,7 @@ import UpdateProduct from './components/product/UpdateProduct';
 import AddProduct from './components/product/AddProduct';
 import Footer from './components/common/Footer';
 import PrivateComponent from './components/PrivateComponent';
+import Product from './components/product/Product';
 function App() {
   return (
     <div className="App">
@@ -25,6 +26,7 @@ function App() {
                 <Route path='/addproduct' element={<AddProduct></AddProduct>}></Route>
                 <Route path='/deleteproduct/:id' element={<DeleteProduct></DeleteProduct>}></Route>
                 <Route path='/updateproduct/:id' element={<UpdateProduct></UpdateProduct>}></Route>
+                <Route path='/product/:id' element={<Product></Product>}></Route>
                 <Route path='/products' element={<Products></Products>}></Route>
                 <Route path='/mycart' element={<MyCart></MyCart>}></Route>
               </Route>

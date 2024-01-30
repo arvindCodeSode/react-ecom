@@ -12,15 +12,24 @@ const Navbar = ()=>{
     }
     return(
         <nav>
-            <ul className="nav-ul">
+            {
+                auth?
+                <ul className="nav-ul">
                 <li> <Link to="/">Home</Link></li>
-                <li><Link to="/addproduct">Products</Link></li>   
-
-                <li>{auth?<Link to="/login" onClick={()=>{ logout() } }>Logout</Link>:<Link to="/signup">Signup</Link>} </li>
-                    {auth?'':<li><Link to="/login">Login</Link></li>}
+                <li><Link to="/products">Products</Link></li>   
+                <li><Link to="/login" onClick={()=>{ logout() } }>Logout</Link> </li>
                 <li><Link to="/mycart">Cart</Link></li>
                 
             </ul>
+                :
+                <ul className="nav-ul">
+                <li> <Link to="/">Home</Link></li>
+                <li><Link to="/signup">Signup</Link> </li>
+                <li><Link to="/login">Login</Link></li>
+            </ul>
+
+            }
+            
         </nav>
     )
 }

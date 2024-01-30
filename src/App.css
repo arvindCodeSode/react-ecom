@@ -12,6 +12,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.error{
+  color: rgb(245, 11, 11);
+}
 
 .App-header {
   background-color: #282c34;
@@ -22,6 +25,18 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+.product-wrapper ul{
+  list-style-type:none;
+  display: flex;
+  width: 50%;
+  margin: auto;
+
+}
+.product-wrapper ul li{
+  border: 1px solid;
+    padding: 7px;
+    width: 100%;
 }
 
 .App-link {

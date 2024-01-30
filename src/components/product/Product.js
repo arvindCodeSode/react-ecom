@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
-const Products =()=>{
- 
+const Product =()=>{
+    const useparam = useParams();
+    const {id} = useparam;
     const  [ products, setProduct ]= useState([]);
     useEffect( () =>{
         getProducts();
@@ -11,13 +12,10 @@ const Products =()=>{
     },[] );
 
     const getProducts = async ()=>{
-        let result = await fetch('http://localhost:4500/product');
+        let result = await fetch(`http://localhost:4500/product/${id}`);
         result = await result.json();
+        console.log(result);
         setProduct(result);
-        // if(result){
-        // }else{
-        //     setProduct('Not Product Found');
-        // }
     }
     console.log(products);
     async function  deleteProduct(id){
@@ -46,25 +44,20 @@ const Products =()=>{
                     <li> Product Company </li>
                     <li> Action </li>
                 </ul>
-                {
-                    products.map( ( item,index )=>{
-                        return(
+
                             <ul>
-                            <li> {index+1} </li>
-                            <li> {item.productTitle} </li>
-                            <li> {item.price} </li>
-                            <li> {item.category} </li>
-                            <li> {item.companyName} </li>
+                            <li> {1} </li>
+                            <li> {products.productTitle} </li>
+                            <li> {products.price} </li>
+                            <li> {products.category} </li>
+                            <li> {products.companyName} </li>
                             <li> 
-                                <button onClick={()=>{ deleteProduct(item._id) }}>Delete</button>
-                                <button><Link to={'/updateProduct/'+item._id}>Update Product</Link></button>
-                                <button><Link to={'/product/'+item._id}>Product</Link></button>
+                                <button onClick={()=>{ deleteProduct(products._id) }}>Delete</button>
+                                <button><Link to={'/updateProduct/'+products._id}>Update Product</Link></button>
+                               
                             </li>
                         </ul>
-                        )
-                        
-                    })
-                }
+                     
                 
             </div>
         </>
@@ -72,4 +65,4 @@ const Products =()=>{
     )
 }
 
-export default Products;
+export default Product;
