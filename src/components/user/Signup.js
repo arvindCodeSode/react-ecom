@@ -27,8 +27,9 @@ const SignUp =()=>{
             }
         });
         result = await result.json();
-        if(result.name){
-            localStorage.setItem('user', JSON.stringify(result));
+        if(result.auth){
+            localStorage.setItem('user', JSON.stringify(result.user));
+            localStorage.setItem('token', result.auth);
             navigate('/');
         }else{
             alert('Invalid login details');
